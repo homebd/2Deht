@@ -18,11 +18,7 @@ public class Door : MonoBehaviour
         targetCam = GetComponentInChildren<Camera>();
     }
 
-    private void Start() {
-        
-    }
-
-    private void Update() {
+    private void LateUpdate() {
         Render();
         for(int i = 0; i < teleportableUnits.Count; i++) {
             TeleportableUnit unit = teleportableUnits[i];

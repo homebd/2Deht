@@ -8,8 +8,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float xRotateSpeed = 100f;
     [SerializeField] private float yRotateSpeed = 100f;
 
-    public GameObject eyes;
+    private Camera eyes;
     // Start is called before the first frame update
+
+    private void Awake() {
+        eyes = Camera.main;
+    }
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -39,7 +43,7 @@ public class PlayerController : MonoBehaviour
         float yRotate = Input.GetAxis("Mouse X");
 
         Vector3 rotateBody = new Vector3(0, yRotate * yRotateSpeed, 0);
-        Vector3 rotateHead = new Vector3(xRotate * xRotateSpeed, 0, 0);
+        Vector3 rotateHead = new Vector3(Mathf.Clamp(xRotate * xRotateSpeed, -60, 60), 0, 0);
 
         transform.eulerAngles += rotateBody * Time.deltaTime;
         eyes.transform.eulerAngles += rotateHead * Time.deltaTime;

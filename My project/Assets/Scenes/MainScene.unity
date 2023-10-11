@@ -1019,7 +1019,6 @@ MonoBehaviour:
   moveSpeed: 5
   xRotateSpeed: 80
   yRotateSpeed: 80
-  eyes: {fileID: 1642227127}
 --- !u!54 &785253976
 Rigidbody:
   m_ObjectHideFlags: 0
